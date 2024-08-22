@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  streamlit:
+    container_name: langchain-streamlit
+    build: .
+    ports:
+      - "8501:8501"    
+    environment:
+      QDRANT_CONNECTION_STRING: http://qdrant:6333
+      QDRANT_COLLECTION_NAME: store_collection
+
+      LANGCHAIN_TRACING_V2: true
+      LANGCHAIN_ENDPOINT: https://api.smith.langchain.com
+      LANGCHAIN_API_KEY: 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
+      LANGCHAIN_PROJECT: chat_langchain
+
+      OLLAMA_MODEL: llama3-groq-tool-use
+
+    depends_on:
+      - qdrant
+
+  qdrant:
+    container_name: langchain_qdrant
+    image: qdrant/qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - ~/data/qdrant-db:/qdrant/storage:z
