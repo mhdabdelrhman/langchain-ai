@@ -7,7 +7,7 @@ services:
     ports:
       - "8501:8501"    
     environment:
-      QDRANT_CONNECTION_STRING: http://qdrant:6333
+      QDRANT_URL: http://qdrant:6333
       QDRANT_COLLECTION_NAME: store_collection
 
       LANGCHAIN_TRACING_V2: true
