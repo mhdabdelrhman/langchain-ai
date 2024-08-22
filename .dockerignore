@@ -4,7 +4,7 @@
 .gitattributes
 
 # files
-files/
+files/*
 
 # CI
 .codeclimate.yml

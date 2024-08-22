@@ -1,7 +1,9 @@
 import streamlit as st
 from tempfile import NamedTemporaryFile
 from chat import Chat
+import chat_core.utils as ut
 
+files_path = "./files"
 # Initialize the chat
 chat = Chat()
 # set chat history
@@ -39,7 +41,7 @@ with st.sidebar:
     st.markdown("---")
     uploaded_file = st.file_uploader("Select a PDF file", type="pdf", key="upload_file")
     if uploaded_file is not None:
-        with NamedTemporaryFile(dir="./files", suffix=".pdf", delete=False) as tmpFile:
+        with NamedTemporaryFile(dir=files_path, suffix=".pdf", delete=False) as tmpFile:
             tmpFile.write(uploaded_file.getbuffer())
 
         button = st.button(
@@ -51,6 +53,7 @@ with st.sidebar:
                 with st.spinner("Uploading..."):
                     chat.store_pdf_file(tmpFile.name)
                 st.success("Uploaded!")
+                ut.delete_files_in_directory(files_path)
             except Exception as e:
                 st.error(e)
 
