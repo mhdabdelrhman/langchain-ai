@@ -5,9 +5,9 @@ services:
     container_name: langchain-streamlit
     build: .
     ports:
-      - "8501:8501"    
+      - "8501:8501"
     environment:
-      QDRANT_URL: http://qdrant:6333
+      QDRANT_URL: http://qdrant
       QDRANT_COLLECTION_NAME: store_collection
 
       LANGCHAIN_TRACING_V2: true
@@ -16,9 +16,11 @@ services:
       LANGCHAIN_PROJECT: chat_langchain
 
       OLLAMA_MODEL: llama3-groq-tool-use
+      OLLAMA_HOST: http://ollama:11434
 
     depends_on:
       - qdrant
+      - ollama
 
   qdrant:
     container_name: langchain-qdrant
@@ -28,3 +30,16 @@ services:
       - "6334:6334"
     volumes:
       - ~/data/qdrant-db:/qdrant/storage:z
+
+  ollama:
+    container_name: langchain-ollama
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ~/.ollama:/root/.ollama
+      - ./entrypoint.sh:/entrypoint.sh
+    pull_policy: always
+    tty: true
+    restart: always
+    entrypoint: ["/usr/bin/bash", "/entrypoint.sh"]

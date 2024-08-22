@@ -17,7 +17,7 @@ if os.getenv("LANGCHAIN_API_KEY") is None:
     os.environ["LANGCHAIN_PROJECT"] = "chat_langchain"
 
 # Qdrant variables
-qdrant_connection_string = os.getenv("QDRANT_URL") or "http://localhost:6333"
+qdrant_connection_string = os.getenv("QDRANT_URL") or "http://localhost"
 
 qdrant_collection_name = os.getenv("QDRANT_COLLECTION_NAME") or "langchain_collection"
 

@@ -5,6 +5,7 @@
 
 # files
 files/*
+entrypoint.sh
 
 # CI
 .codeclimate.yml
