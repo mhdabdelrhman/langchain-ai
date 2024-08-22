@@ -11,7 +11,9 @@ def load_qdrant_store(
     embedding: Embeddings,
     vector_size: int = 4096,
 ) -> VectorStore:
-    qdrant_client = QdrantClient(url=qdrant_url)  # Replace with your Qdrant endpoint
+    qdrant_client = QdrantClient(
+        url=qdrant_url, prefer_grpc=True
+    )  # Replace with your Qdrant endpoint
 
     # Create collection if it doesn't exist
     if not qdrant_client.collection_exists(collection_name):
