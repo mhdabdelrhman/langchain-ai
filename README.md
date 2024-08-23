@@ -4,7 +4,7 @@
 ## Description
 ---------------
 
-Run langchain with Ollama
+Run langchain with Ollama and Qdrant vector database
 
 ## Technical Details
 -------------------
