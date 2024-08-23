@@ -40,4 +40,11 @@ services:
     pull_policy: always
     tty: true
     restart: always
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
     entrypoint: ["/usr/bin/bash", "/entrypoint.sh"]
