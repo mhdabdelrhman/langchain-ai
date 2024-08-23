@@ -4,7 +4,7 @@
 .gitattributes
 
 # files
-files/*
+src/files/*
 entrypoint.sh
 
 # CI
