@@ -24,8 +24,8 @@ Run langchain with Ollama
 
 ### Building the Application
 
-* `make rebuild`: [ Briefly describe what this command does ]
+* `make rebuild`: Build the app
 
 ### Running the Application
 
-* `make run`: [ Briefly describe what this command does ]
+* `make run`: Run the app
