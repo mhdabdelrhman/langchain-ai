@@ -13,12 +13,6 @@ Run langchain with Ollama
 * Frameworks: StreamLit for UI
 * Dependencies: langchain_qdrant, langchain_ollama
 
-## System Requirements
-----------------------
-
-* Operating system: [ List the supported operating systems ]
-* Dependencies: [ List the dependencies required ]
-
 ## Makefile Commands
 --------------------
 
