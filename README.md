@@ -19,3 +19,7 @@ Run langchain with Ollama and Qdrant vector database locally
 ### Running the Application
 
 * `make run`: Run the app
+  
+### Stopping the Application
+
+* `make down`: Stop the app
